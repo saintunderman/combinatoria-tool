@@ -12,6 +12,31 @@ function factorial(n) {
 
 // Interfaz de usuario
 // Aquí debes crear botones, campos de entrada y elementos HTML para mostrar los resultados
+// Escuchar cambios en las opciones
+const objetosRadio = document.querySelectorAll('input[name="objetos"]');
+objetosRadio.forEach((radio) => {
+    radio.addEventListener('change', () => {
+        const seleccion = radio.value;
+        if (seleccion === 'letras') {
+            mostrarLetras();
+        } else if (seleccion === 'numeros') {
+            mostrarNumeros();
+        }
+        // Agrega más casos según tus necesidades
+    });
+});
+
+// Funciones para mostrar letras y números
+function mostrarLetras() {
+    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    document.getElementById('visualizacion').textContent = letras;
+}
+
+function mostrarNumeros() {
+    const numeros = '123456789';
+    document.getElementById('visualizacion').textContent = numeros;
+}
+
 
 // Ejemplo: escuchar clic en un botón
 const calcularButton = document.getElementById('calcular');
